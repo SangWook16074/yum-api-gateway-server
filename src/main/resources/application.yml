@@ -7,6 +7,6 @@ spring:
     gateway:
       routes:
         - id: yum-ingredient-server
-          uri: http://${INGREDIENT_SERVER_NAME}:${INGREDIENT_SERVER_PORT}
+          uri: http://localhost:${INGREDIENT_SERVER_PORT}
           predicates:
             - Path=/api/ingredients/**

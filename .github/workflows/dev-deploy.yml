@@ -47,5 +47,5 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPONAME }}:latest
             sudo docker stop yum-api-gateway-container
-            sudo docker run -d -p ${{ secrets.API_PORT }}:${{ secrets.API_PORT }} --name yum-api-gateway-container --network ${{ secrets.NETWORK_NAME }} --env-file /home/${{ secrets.AWS_USER }}/app/yum_web_server/.env ${{ secrets.DOCKER_USERNAME }}/yum-api-gateway-container
+            sudo docker run -d -p ${{ secrets.API_PORT }}:${{ secrets.API_PORT }} --name=yum-api-gateway-container --network=${{ secrets.NETWORK_NAME }} --env-file=/home/${{ secrets.AWS_USER }}/app/yum_web_server/.env ${{ secrets.DOCKER_USERNAME }}/yum-api-gateway-container
             sudo docker image prune -a -f
