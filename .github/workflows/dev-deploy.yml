@@ -45,7 +45,6 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_EC2_PRIVATE_KEY }}
           script: |
-            mkdir /home/${{ secrets.AWS_USER }}/app
             cd /home/${{ secrets.AWS_USER }}/app
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPONAME }}:latest
             sudo docker stop yum-api-gateway-container
