@@ -1,3 +1,6 @@
+server:
+  max-http-request-header-size: 65536
+
 spring:
   application:
     name: yum_api_gateway_server
@@ -7,6 +10,6 @@ spring:
     gateway:
       routes:
         - id: yum-ingredient-server
-          uri: http://localhost:${INGREDIENT_SERVER_PORT}
+          uri: http://${INGREDIENT_SERVER_NAME}:${INGREDIENT_SERVER_PORT}
           predicates:
             - Path=/api/ingredients/**
