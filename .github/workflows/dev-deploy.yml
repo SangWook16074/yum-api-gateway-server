@@ -49,5 +49,5 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPONAME }}:latest
             sudo docker stop yum-api-gateway-container
             sudo docker image rm ${{ secrets.DOCKER_USERNAME }}/yum-api-gateway-container
-            sudo docker build -p ${{ secrets.API_PORT }}:${{ secrets.API_PORT }} --name=yum-api-gateway-container --network=${{ secrets.NETWORK_NAME }} ${{ secrets.DOCKER_USERNAME }}/yum-api-gateway-container
+            sudo docker build -d -p ${{ secrets.API_PORT }}:${{ secrets.API_PORT }} --name=yum-api-gateway-container --network=${{ secrets.NETWORK_NAME }} ${{ secrets.DOCKER_USERNAME }}/yum-api-gateway-container
             sudo docker image prune -a -f

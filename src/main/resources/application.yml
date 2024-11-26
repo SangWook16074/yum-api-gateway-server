@@ -1,6 +1,8 @@
 spring:
   application:
     name: yum_api_gateway_server
+  config:
+    import: optional:file:.env[.properties]
   cloud:
     gateway:
       routes:
