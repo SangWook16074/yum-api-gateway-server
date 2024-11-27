@@ -13,3 +13,10 @@ spring:
           uri: http://${INGREDIENT_SERVER_NAME}:${INGREDIENT_SERVER_PORT}
           predicates:
             - Path=/api/ingredients/**
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+    urls[0]:
+      name: Ingredient Service API
+      url: http://localhost:8080/api/ingredients/v3/api-docs
