@@ -16,9 +16,7 @@ spring:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
-    enabled: true
     use-root-path: true
-    urls[0]:
+    urls:
       - name: Ingredient Service API
         url: http://localhost:8080/api/ingredients/v3/api-docs
