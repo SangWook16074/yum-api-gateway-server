@@ -13,6 +13,10 @@ spring:
           uri: http://${INGREDIENT_SERVER_NAME}:${INGREDIENT_SERVER_PORT}
           predicates:
             - Path=/api/ingredients/**
+        - id: yum-recipe-server
+          uri: http://${RECIPE_SERVER_NAME}:${RECIPE_SERVER_PORT}
+          predicates:
+            - Path=/api/recipes/**
 
 springdoc:
   swagger-ui:
