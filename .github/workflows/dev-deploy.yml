@@ -3,8 +3,6 @@ name: Deploy develop CICD
 on:
   push:
     branches: [ "develop" ]
-  merge_group:
-    branches: [ "develop" ]
 
 jobs:
   build:
@@ -48,5 +46,5 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPONAME }}:latest
             sudo docker stop yum-api-gateway-container
             sudo docker rm yum-api-gateway-container
-            sudo docker run -d -p ${{ secrets.API_PORT }}:${{ secrets.API_PORT }} --name=yum-api-gateway-container --network=${{ secrets.NETWORK }} --env-file=/home/${{ secrets.AWS_USER }}/app/yum_gateway_server/.env ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPONAME }}
+            sudo docker run -d -p ${{ secrets.API_PORT }}:${{ secrets.API_PORT }} --name=yum-api-gateway-container --network=${{ secrets.NETWORK }} --env-file=/home/${{ secrets.AWS_USER }}/app/yum-api-gateway-server/.env ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPONAME }}
             sudo docker image prune -a -f
