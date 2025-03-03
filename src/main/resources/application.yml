@@ -10,11 +10,11 @@ spring:
     gateway:
       routes:
         - id: yum-ingredient-server
-          uri: http://${INGREDIENT_SERVER_NAME}:${INGREDIENT_SERVER_PORT}
+          uri: http://yum-ingredient-server-container:8080
           predicates:
             - Path=/api/ingredients/**
         - id: yum-recipe-server
-          uri: http://${RECIPE_SERVER_NAME}:${RECIPE_SERVER_PORT}
+          uri: http://yum-recipe-server-container:8080
           predicates:
             - Path=/api/recipes/**
 
