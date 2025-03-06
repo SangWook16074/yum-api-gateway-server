@@ -23,6 +23,6 @@ springdoc:
     use-root-path: true
     urls:
       - name: Ingredient Service API
-        url: http://${GATEWAY_IP}:8080/api/ingredients/v3/api-docs
+        url: http://yum-ingredient-server-container:8080/api/ingredients/v3/api-docs
       - name: Recipe Service API
-        url: http://${GATEWAY_IP}:8080/api/recipes/v3/api-docs
+        url: http://yum-recipe-server-container:8080/api/recipes/v3/api-docs
