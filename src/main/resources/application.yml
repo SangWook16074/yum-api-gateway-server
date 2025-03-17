@@ -10,13 +10,18 @@ spring:
     gateway:
       routes:
         - id: yum-ingredient-server
-          uri: http://yum-ingredient-server-container:8080
+          uri: http://${YUM_INGREDIENT_SERVER}:8080
           predicates:
             - Path=/api/ingredients/**
         - id: yum-recipe-server
-          uri: http://yum-recipe-server-container:8080
+          uri: http://${YUM_RECIPE_SERVER}:8080
           predicates:
             - Path=/api/recipes/**
+        - id: yum-auth-server
+          uri: http://${YUM_AUTH_SERVER}:8080
+          predicates:
+            - Path=/api/signup/**
+            - Path=/api/login/**
 
 springdoc:
   swagger-ui:
@@ -26,3 +31,5 @@ springdoc:
         url: http://${GATEWAY_DNS}:8080/api/ingredients/v3/api-docs
       - name: Recipe Service API
         url: http://${GATEWAY_DNS}:8080/api/recipes/v3/api-docs
+      - name: Auth Service API
+        url: http://${GATEWAY_DNS}:8080/api/signup/v3/api-docs
